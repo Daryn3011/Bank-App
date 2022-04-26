@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="login-form bg-light mt-4 p-4">
+                <form th:action="@{/create}" method="post" th:object="${user}" class="row g-3">
+                    <h4>User Registration</h4>
+                    <div class="col-12">
+                        <label>login</label>
+                        <input type="email" name="login" class="form-control" placeholder="login" th:field="*{login}" size="32" minlength="3" maxlength="64">
+                    </div>
+                    <div class="col-12">
+                        <label>firstname</label>
+                        <input type="text" name="firstname" class="form-control" placeholder="firstname" th:field="*{firstname}" required minlength="3" maxlength="25">
+                    </div>
+                    <div class="col-12">
+                        <label>lastname</label>
+                        <input type="text" name="lastname" class="form-control" placeholder="lastname" th:field="*{lastname}" required minlength="8" maxlength="25">
+                    </div>
+                    <div class="col-12">
+                        <label>password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password" th:field="*{password}" required minlength="8" maxlength="25">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-dark float-end">Signup</button>
+                    </div>
+                </form>
+                <hr class="mt-4">
+                <div class="col-12">
+                    <p class="text-center mb-0">Already have an account? <a href="/login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function cancelForm(){
+        window.location = "[[@{/product}]]"
+    }
+</script>
+</body>
+</html>
